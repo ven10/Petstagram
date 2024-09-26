@@ -21,7 +21,8 @@ class FileSizeValidator:
     def message(self, value):
         if value is None:
             self.__message = f"The maximum file size that can be uploaded is {self.file_size_mb}MB"
-        self.__message = value
+        else:
+            self.__message = value
 
     def __call__(self, image_object):
         if image_object.size > self.file_size_mb * 1024 * 1024:  #5242800 B
