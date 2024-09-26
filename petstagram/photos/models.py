@@ -9,9 +9,10 @@ from petstagram.photos.validators import FileSizeValidator
 
 class Photo(models.Model):
     photo = models.ImageField(
+        upload_to='mediafiles',
         validators=[
             FileSizeValidator(5)
-        ]
+        ],
     )
     description = models.TextField(
         max_length=300,
@@ -36,3 +37,6 @@ class Photo(models.Model):
     date_of_publication = models.DateField(
         auto_now=True,
     )
+
+    def __str__(self):
+        return f"Photo {self.id} - {self.description}"
