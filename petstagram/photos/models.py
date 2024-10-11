@@ -24,7 +24,7 @@ class Photo(models.Model):
         help_text='Comment must not exceed 300 characters.'
     )
 
-    locations = models.CharField(
+    location = models.CharField(
         max_length=30,
         blank=True,
         null=True,
